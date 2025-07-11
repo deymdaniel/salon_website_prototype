@@ -42,8 +42,8 @@ export const salonConfig = {
     },
     social: {
       youtube: "https://www.youtube.com",
-      instagram: "https://www.instagram.com/stylefusion.studio",
-      facebook: "https://www.facebook.com/stylefusionstudio",
+      instagram: "https://www.instagram.com/",
+      facebook: "https://www.facebook.com/",
       tiktok: "https://www.tiktok.com",
     },
   },
@@ -112,7 +112,7 @@ export const salonConfig = {
       name: "Alyssa Cruz",
       title: "Senior Stylist",
       bio: "Specialist in creative coloring and balayage. Passionate about bringing out each client's unique style.",
-      image: "/api/placeholder/300/300", // You can replace with actual images
+      image: "/assets/paul-kansonkho-G9mFRqZYNkY-unsplash(1).jpg", // You can replace with actual images
       specialties: ["Balayage", "Creative Coloring", "Women's Cuts"],
     },
     {
@@ -120,7 +120,7 @@ export const salonConfig = {
       name: "Carlos Mendoza",
       title: "Men's Grooming Expert",
       bio: "Focused on precision cuts, fades, and styling. Committed to quality and attention to detail.",
-      image: "/api/placeholder/300/300",
+      image: "/assets/jc-mariano-R6w1i8xgmbk-unsplash.jpg",
       specialties: ["Men's Cuts", "Fades", "Beard Trimming"],
     },
     {
@@ -128,7 +128,7 @@ export const salonConfig = {
       name: "Jordan Reyes",
       title: "Smoothing & Styling Specialist",
       bio: "Expert in smoothing treatments, blow-dries, and event styling. Making every client camera-ready.",
-      image: "/api/placeholder/300/300",
+      image: "/assets/good-faces-yliYi-2s9qg-unsplash.jpg",
       specialties: ["Keratin Treatments", "Event Styling", "Blow-Dry"],
     },
   ],
@@ -159,6 +159,30 @@ export const salonConfig = {
       rating: 5,
       service: "Keratin Treatment",
     },
+    {
+      id: 4,
+      name: "Sarah",
+      location: "Taguig",
+      text: "The salon has such a great vibe, and my stylist was so attentive. I'll be back for sure!",
+      rating: 5,
+      service: "Women's Cut",
+    },
+    {
+      id: 5,
+      name: "James",
+      location: "Pasig",
+      text: "First time getting a professional beard trim and Carlos did not disappoint. Top-notch service.",
+      rating: 5,
+      service: "Beard Trim",
+    },
+    {
+      id: 6,
+      name: "Chloe",
+      location: "Mandaluyong",
+      text: "I'm so happy with my new hair color! Alyssa understood exactly what I wanted and executed it perfectly.",
+      rating: 5,
+      service: "Creative Coloring",
+    },
   ],
 
   // Special offers
@@ -173,37 +197,37 @@ export const salonConfig = {
   gallery: [
     {
       id: 1,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/balayage.jpg",
       alt: "Before & After Balayage by Alyssa",
       category: "color",
     },
     {
       id: 2,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/fade.jpg",
       alt: "Carlos perfecting a classic fade",
       category: "men",
     },
     {
       id: 3,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/keratin.jpg",
       alt: "Keratin Smoothing results by Jordan",
       category: "treatment",
     },
     {
       id: 4,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/precision.jpg",
       alt: "Women's precision cut",
       category: "women",
     },
     {
       id: 5,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/styling.jpg",
       alt: "Professional styling",
       category: "styling",
     },
     {
       id: 6,
-      src: "/api/placeholder/400/300",
+      src: "/assets/gallery/interior.jpg",
       alt: "Salon interior",
       category: "salon",
     },
@@ -211,7 +235,7 @@ export const salonConfig = {
 
   // Hero section
   hero: {
-    backgroundImage: "/assets/hero.jpg",
+    backgroundImage: "/assets/giorgio-trovato-wSpkThmoZQc-unsplash.jpg",
     title: "Welcome to Style Fusion Studio",
     subtitle: "Style Without Limits.",
     ctaText: "Book Now",

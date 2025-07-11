@@ -73,9 +73,9 @@ const Gallery = () => {
               <img
                 src={image.src}
                 alt={image.alt}
-                className='w-full h-full object-cover transition duration-300 group-hover:scale-110'
+                className='w-full h-full object-cover transition duration-300 group-hover:scale-110 group-hover:brightness-75'
               />
-              <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 flex items-center justify-center'>
+              <div className='absolute inset-0 bg-transparent transition duration-300 flex items-center justify-center'>
                 <span className='text-white opacity-0 group-hover:opacity-100 transition duration-300 text-sm font-medium'>
                   View Image
                 </span>
@@ -99,19 +99,22 @@ const Gallery = () => {
           className='fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4'
           onClick={closeLightbox}
         >
-          <div className='relative max-w-4xl max-h-full'>
+          <div
+            className='relative w-auto h-auto max-w-[90vw] max-h-[90vh]'
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className='max-w-full max-h-full object-contain'
+              className='w-auto h-auto max-w-full max-h-[90vh] object-contain'
             />
             <button
               onClick={closeLightbox}
-              className='absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition duration-200'
+              className='absolute -top-2 -right-10 text-white text-4xl hover:text-gray-300 transition duration-200'
             >
               ×
             </button>
-            <div className='absolute bottom-4 left-4 right-4 text-white text-center'>
+            <div className='absolute -bottom-8 left-0 right-0 text-white text-center bg-black bg-opacity-50 p-2 rounded-b-lg'>
               <p className='text-lg font-medium'>{selectedImage.alt}</p>
             </div>
           </div>

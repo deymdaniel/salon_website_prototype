@@ -1,5 +1,6 @@
 import React from "react";
 import { salonConfig } from "../config/salonConfig";
+import { FaYoutube, FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -80,25 +81,42 @@ const Footer = () => {
             {/* Social Media */}
             <div className='mt-6'>
               <h5 className='font-semibold mb-2'>Follow Us</h5>
-              <div className='flex space-x-3'>
+              <div className='flex space-x-4'>
                 <a
-                  href={`https://instagram.com/${salonConfig.contact.social.instagram.replace(
-                    "@",
-                    ""
-                  )}`}
+                  href={salonConfig.contact.social.youtube}
                   target='_blank'
                   rel='noopener noreferrer'
+                  aria-label='YouTube'
                   className='text-gray-300 hover:text-white transition duration-200'
                 >
-                  📷 Instagram
+                  <FaYoutube size={24} />
                 </a>
                 <a
-                  href={`https://${salonConfig.contact.social.facebook}`}
+                  href={salonConfig.contact.social.instagram}
                   target='_blank'
                   rel='noopener noreferrer'
+                  aria-label='Instagram'
                   className='text-gray-300 hover:text-white transition duration-200'
                 >
-                  📘 Facebook
+                  <FaInstagram size={24} />
+                </a>
+                <a
+                  href={salonConfig.contact.social.facebook}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Facebook'
+                  className='text-gray-300 hover:text-white transition duration-200'
+                >
+                  <FaFacebook size={24} />
+                </a>
+                <a
+                  href={salonConfig.contact.social.tiktok}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='TikTok'
+                  className='text-gray-300 hover:text-white transition duration-200'
+                >
+                  <FaTiktok size={24} />
                 </a>
               </div>
             </div>
@@ -107,6 +125,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm'>
+          <p className='mb-2'>
+            Disclaimer: This is a fictional business for a personal project. All
+            information and media are for demonstration purposes only.
+          </p>
           <p>
             &copy; {currentYear} {salonConfig.businessName}. All rights
             reserved.

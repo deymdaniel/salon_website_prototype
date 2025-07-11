@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { salonConfig } from "../config/salonConfig";
+import BookingModal from "./BookingModal";
 
 const Testimonials = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <span
@@ -12,6 +18,11 @@ const Testimonials = () => {
       </span>
     ));
   };
+
+  const duplicatedTestimonials = [
+    ...salonConfig.testimonials,
+    ...salonConfig.testimonials,
+  ];
 
   return (
     <section
@@ -31,51 +42,54 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {salonConfig.testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className={`${salonConfig.colors.surface} rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300`}
-            >
-              {/* Quote Icon */}
+        <div className='relative w-full overflow-hidden testimonial-scroller'>
+          <div className='flex w-max animate-scroll pause-on-hover'>
+            {duplicatedTestimonials.map((testimonial, index) => (
               <div
-                className={`text-4xl ${salonConfig.colors.buttonSecondary.replace(
-                  "bg-",
-                  "text-"
-                )} mb-4`}
+                key={`${testimonial.id}-${index}`}
+                className={`${salonConfig.colors.surface} rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300 mx-3 w-[350px] flex-shrink-0`}
               >
-                "
-              </div>
-
-              {/* Testimonial Text */}
-              <p className={`${salonConfig.colors.text} mb-4 italic`}>
-                {testimonial.text}
-              </p>
-
-              {/* Rating */}
-              <div className='flex mb-3'>{renderStars(testimonial.rating)}</div>
-
-              {/* Client Info */}
-              <div className='flex items-center justify-between'>
-                <div>
-                  <h4 className={`font-semibold ${salonConfig.colors.text}`}>
-                    {testimonial.name}
-                  </h4>
-                  <p className={`text-sm ${salonConfig.colors.textLight}`}>
-                    {testimonial.location}
-                  </p>
-                </div>
+                {/* Quote Icon */}
                 <div
-                  className={`text-xs ${salonConfig.colors.buttonSecondary.replace(
-                    "bg-",
-                    "text-"
-                  )} font-medium`}
+                  className={`text-4xl ${salonConfig.colors.buttonSecondary
+                    .split(" ")[0]
+                    .replace("bg-", "text-")} mb-4`}
                 >
-                  {testimonial.service}
+                  "
+                </div>
+
+                {/* Testimonial Text */}
+                <p className={`${salonConfig.colors.text} mb-4 italic`}>
+                  {testimonial.text}
+                </p>
+
+                {/* Rating */}
+                <div className='flex mb-3'>
+                  {renderStars(testimonial.rating)}
+                </div>
+
+                {/* Client Info */}
+                <div className='flex items-center justify-between'>
+                  <div>
+                    <h4 className={`font-semibold ${salonConfig.colors.text}`}>
+                      {testimonial.name}
+                    </h4>
+                    <p className={`text-sm ${salonConfig.colors.textLight}`}>
+                      {testimonial.location}
+                    </p>
+                  </div>
+                  <div
+                    className={`text-xs ${salonConfig.colors.buttonSecondary.replace(
+                      "bg-",
+                      "text-"
+                    )} font-medium`}
+                  >
+                    {testimonial.service}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Call to Action */}
@@ -84,12 +98,14 @@ const Testimonials = () => {
             Ready to experience exceptional service for yourself?
           </p>
           <button
+            onClick={openModal}
             className={`${salonConfig.colors.buttonPrimary} text-white px-8 py-3 rounded-lg font-semibold transition duration-200 hover:transform hover:scale-105`}
           >
             Book Your Appointment
           </button>
         </div>
       </div>
+      <BookingModal isOpen={isModalOpen} onClose={closeModal} />
     </section>
   );
 };
