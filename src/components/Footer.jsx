@@ -129,6 +129,10 @@ const Footer = () => {
             Disclaimer: This is a fictional business for a personal project. All
             information and media are for demonstration purposes only.
           </p>
+          <p className='mb-2'>
+            The photos used in this project are sourced from Unsplash and
+            Pinterest.
+          </p>
           <p>
             &copy; {currentYear} {salonConfig.businessName}. All rights
             reserved.

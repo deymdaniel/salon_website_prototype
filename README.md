@@ -18,4 +18,4 @@ This project is a fully responsive and customizable salon website prototype buil
 
 ## Disclaimer
 
-This is a fictional business created for a personal project. All information, services, and media are for demonstration purposes only.
+This is a fictional business created for a personal project. All information, services, and media are for demonstration purposes only. The photos used in this project are sourced from Unsplash and Pinterest.
