@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+
+// Import all components
+import Navigation from "./components/Navigation";
+import SpecialOffer from "./components/SpecialOffer";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Stylists from "./components/Stylists";
+import Gallery from "./components/Gallery";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import BookingModal from "./components/BookingModal";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
+  const openBookingModal = () => {
+    setIsBookingModalOpen(true);
+  };
+
+  const closeBookingModal = () => {
+    setIsBookingModalOpen(false);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className='min-h-screen'>
+      {/* Special Offer Banner */}
+      <SpecialOffer />
+
+      {/* Navigation */}
+      <Navigation onBookingClick={openBookingModal} />
+
+      {/* Main Content */}
+      <main>
+        <section id='home'>
+          <Hero onBookingClick={openBookingModal} />
+        </section>
+        <Services />
+        <Stylists />
+        <Gallery />
+        <Testimonials />
+        <Contact />
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Booking Modal */}
+      <BookingModal isOpen={isBookingModalOpen} onClose={closeBookingModal} />
+    </div>
+  );
 }
 
-export default App
+export default App;
